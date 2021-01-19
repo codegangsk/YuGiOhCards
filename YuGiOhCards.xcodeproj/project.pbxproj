@@ -97,12 +97,9 @@
 		2A96B8A025B6AA2600975B04 /* YuGiOhCards */ = {
 			isa = PBXGroup;
 			children = (
-				2A96B8A125B6AA2700975B04 /* AppDelegate.swift */,
-				2A96B8A325B6AA2700975B04 /* SceneDelegate.swift */,
-				2A96B8A525B6AA2700975B04 /* ViewController.swift */,
-				2A96B8AA25B6AA2700975B04 /* Assets.xcassets */,
-				2A96B8AC25B6AA2700975B04 /* LaunchScreen.storyboard */,
 				2A96B8AF25B6AA2700975B04 /* Info.plist */,
+				2A96B8EF25B6C4C600975B04 /* Application */,
+				2A96B8F225B6C53A00975B04 /* Assets */,
 			);
 			path = YuGiOhCards;
 			sourceTree = "<group>";
@@ -123,6 +120,41 @@
 				2A96B8C525B6AA2700975B04 /* Info.plist */,
 			);
 			path = YuGiOhCardsUITests;
+			sourceTree = "<group>";
+		};
+		2A96B8EF25B6C4C600975B04 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				2A96B8A125B6AA2700975B04 /* AppDelegate.swift */,
+				2A96B8A325B6AA2700975B04 /* SceneDelegate.swift */,
+				2A96B8F025B6C4F400975B04 /* Presentation */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		2A96B8F025B6C4F400975B04 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2A96B8F125B6C52100975B04 /* ViewControllers */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2A96B8F125B6C52100975B04 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A96B8A525B6AA2700975B04 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		2A96B8F225B6C53A00975B04 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				2A96B8AC25B6AA2700975B04 /* LaunchScreen.storyboard */,
+				2A96B8AA25B6AA2700975B04 /* Assets.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
