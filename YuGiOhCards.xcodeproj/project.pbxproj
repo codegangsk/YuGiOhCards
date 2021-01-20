@@ -14,11 +14,8 @@
 		2A96B8AE25B6AA2700975B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A96B8AC25B6AA2700975B04 /* LaunchScreen.storyboard */; };
 		2A96B8B925B6AA2700975B04 /* YuGiOhCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8B825B6AA2700975B04 /* YuGiOhCardsTests.swift */; };
 		2A96B8C425B6AA2700975B04 /* YuGiOhCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8C325B6AA2700975B04 /* YuGiOhCardsUITests.swift */; };
-<<<<<<< HEAD
 		2A96B91025B7C19100975B04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B90F25B7C19100975B04 /* SnapKit */; };
-=======
 		2A96B8F525B6C6DF00975B04 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B8F425B6C6DF00975B04 /* Alamofire */; };
->>>>>>> feature/Alamofire
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,11 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				2A96B91025B7C19100975B04 /* SnapKit in Frameworks */,
-=======
 				2A96B8F525B6C6DF00975B04 /* Alamofire in Frameworks */,
->>>>>>> feature/Alamofire
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,11 +178,8 @@
 			);
 			name = YuGiOhCards;
 			packageProductDependencies = (
-<<<<<<< HEAD
 				2A96B90F25B7C19100975B04 /* SnapKit */,
-=======
 				2A96B8F425B6C6DF00975B04 /* Alamofire */,
->>>>>>> feature/Alamofire
 			);
 			productName = YuGiOhCards;
 			productReference = 2A96B89E25B6AA2600975B04 /* YuGiOhCards.app */;
@@ -262,11 +253,8 @@
 			);
 			mainGroup = 2A96B89525B6AA2600975B04;
 			packageReferences = (
-<<<<<<< HEAD
 				2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */,
-=======
 				2A96B8F325B6C6DF00975B04 /* XCRemoteSwiftPackageReference "Alamofire" */,
->>>>>>> feature/Alamofire
 			);
 			productRefGroup = 2A96B89F25B6AA2600975B04 /* Products */;
 			projectDirPath = "";
@@ -639,37 +627,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-<<<<<<< HEAD
 		2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.1;
-=======
+            };
+        };
 		2A96B8F325B6C6DF00975B04 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.4.1;
->>>>>>> feature/Alamofire
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-<<<<<<< HEAD
 		2A96B90F25B7C19100975B04 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-=======
+        };
 		2A96B8F425B6C6DF00975B04 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A96B8F325B6C6DF00975B04 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
->>>>>>> feature/Alamofire
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
