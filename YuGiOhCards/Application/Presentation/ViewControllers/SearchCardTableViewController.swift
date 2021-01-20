@@ -17,6 +17,8 @@ extension SearchCardTableViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         defineSearchController()
+        
+        self.tableView.register(SearchCardTableViewCell.self, forCellReuseIdentifier: "SearchCardCellIdentifier")
     }
 }
 
