@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4E690925B7CE60000B992C /* SearchCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E690825B7CE60000B992C /* SearchCardTableViewController.swift */; };
 		2A96B8A225B6AA2700975B04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8A125B6AA2700975B04 /* AppDelegate.swift */; };
 		2A96B8A425B6AA2700975B04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8A325B6AA2700975B04 /* SceneDelegate.swift */; };
 		2A96B8A625B6AA2700975B04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8A525B6AA2700975B04 /* ViewController.swift */; };
@@ -14,8 +15,8 @@
 		2A96B8AE25B6AA2700975B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A96B8AC25B6AA2700975B04 /* LaunchScreen.storyboard */; };
 		2A96B8B925B6AA2700975B04 /* YuGiOhCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8B825B6AA2700975B04 /* YuGiOhCardsTests.swift */; };
 		2A96B8C425B6AA2700975B04 /* YuGiOhCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8C325B6AA2700975B04 /* YuGiOhCardsUITests.swift */; };
-		2A96B91025B7C19100975B04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B90F25B7C19100975B04 /* SnapKit */; };
 		2A96B8F525B6C6DF00975B04 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B8F425B6C6DF00975B04 /* Alamofire */; };
+		2A96B91025B7C19100975B04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B90F25B7C19100975B04 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A4E690825B7CE60000B992C /* SearchCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardTableViewController.swift; sourceTree = "<group>"; };
 		2A96B89E25B6AA2600975B04 /* YuGiOhCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YuGiOhCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A96B8A125B6AA2700975B04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A96B8A325B6AA2700975B04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				2A96B8A525B6AA2700975B04 /* ViewController.swift */,
+				2A4E690825B7CE60000B992C /* SearchCardTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A96B8A625B6AA2700975B04 /* ViewController.swift in Sources */,
+				2A4E690925B7CE60000B992C /* SearchCardTableViewController.swift in Sources */,
 				2A96B8A225B6AA2700975B04 /* AppDelegate.swift in Sources */,
 				2A96B8A425B6AA2700975B04 /* SceneDelegate.swift in Sources */,
 			);
@@ -627,14 +631,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-            };
-        };
 		2A96B8F325B6C6DF00975B04 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -643,18 +639,26 @@
 				minimumVersion = 5.4.1;
 			};
 		};
+		2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2A96B90F25B7C19100975B04 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-        };
 		2A96B8F425B6C6DF00975B04 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A96B8F325B6C6DF00975B04 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		2A96B90F25B7C19100975B04 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
