@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		2A96B8AE25B6AA2700975B04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A96B8AC25B6AA2700975B04 /* LaunchScreen.storyboard */; };
 		2A96B8B925B6AA2700975B04 /* YuGiOhCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8B825B6AA2700975B04 /* YuGiOhCardsTests.swift */; };
 		2A96B8C425B6AA2700975B04 /* YuGiOhCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8C325B6AA2700975B04 /* YuGiOhCardsUITests.swift */; };
+		2A96B91025B7C19100975B04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B90F25B7C19100975B04 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A96B91025B7C19100975B04 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +175,9 @@
 			dependencies = (
 			);
 			name = YuGiOhCards;
+			packageProductDependencies = (
+				2A96B90F25B7C19100975B04 /* SnapKit */,
+			);
 			productName = YuGiOhCards;
 			productReference = 2A96B89E25B6AA2600975B04 /* YuGiOhCards.app */;
 			productType = "com.apple.product-type.application";
@@ -244,6 +249,9 @@
 				Base,
 			);
 			mainGroup = 2A96B89525B6AA2600975B04;
+			packageReferences = (
+				2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 2A96B89F25B6AA2600975B04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -613,6 +621,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2A96B90F25B7C19100975B04 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A96B89625B6AA2600975B04 /* Project object */;
 }
