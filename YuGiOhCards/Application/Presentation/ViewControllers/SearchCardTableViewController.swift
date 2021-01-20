@@ -6,16 +6,30 @@
 //
 
 import UIKit
+import SnapKit
 
 class SearchCardTableViewController: UITableViewController {
+    var searchController: UISearchController!
+}
 
+extension SearchCardTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        defineSearchController()
     }
+}
 
-    // MARK: - Table view data source
+extension SearchCardTableViewController {
+    func defineSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+    }
+}
 
+extension SearchCardTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 0
     }
