@@ -14,7 +14,7 @@ struct CardRequested: Codable {
     var def: Int
     var race: String
     var description: String
-    var cardImage: URL
+    var cardImage: [URL]
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -33,7 +33,7 @@ struct CardRequested: Codable {
         def = try values.decode(Int.self, forKey: CodingKeys.def)
         race = try values.decode(String.self, forKey: CodingKeys.race)
         description = try values.decode(String.self, forKey: CodingKeys.description)
-        cardImage = try values.decode(URL.self, forKey: CodingKeys.cardImage)
+        cardImage = try values.decode([URL].self, forKey: CodingKeys.cardImage)
     }
 }
 
