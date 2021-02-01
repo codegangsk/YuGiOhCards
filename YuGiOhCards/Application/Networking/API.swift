@@ -6,8 +6,8 @@
 //
 
 import Foundation
-class cardRequestedController {
-    func fetchItems(matching query: [String: String], completion: @escaping ([CardRequested]?) -> Void) {
+class CardRequestedController {
+    func fetchItems(matching query: [String: String], completion: @escaping ([Card]?) -> Void) {
         let baseURL = URL(string: "https://db.ygoprodeck.com/api/v7/cardinfo.php")!
         
         guard let url = baseURL.withQueries(query) else {
@@ -27,14 +27,14 @@ class cardRequestedController {
             }
             
             guard let data = data,
-                  let cardsRequested = try? JSONDecoder().decode(CardsRequested.self, from: data)
+                  let cards = try? JSONDecoder().decode(Cards.self, from: data)
             else {
                 print("Either no data was returned, or data was not serialized.")
                 completion(nil)
                 return
             }
 
-            completion(cardsRequested.results)
+            completion(cards.results)
         }
         task.resume()
     }
