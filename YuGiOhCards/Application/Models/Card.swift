@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Alamofire
 
-struct Card: Codable {
+struct Card: Decodable {
     var name: String
     var type: String
     var atk: Int
@@ -32,4 +33,6 @@ struct Card: Codable {
         race = try values.decode(String.self, forKey: CodingKeys.race)
         description = try values.decode(String.self, forKey: CodingKeys.description)
     }
-}
+}    
+
+

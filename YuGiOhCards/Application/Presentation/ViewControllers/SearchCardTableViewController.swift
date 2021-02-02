@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import SnapKit
+import Alamofire
 
 class SearchCardTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
-    let cardRequestedController = CardRequestedController()
-    var cards = [Card]()
+    var cards: [Card] = []
 }
 
 extension SearchCardTableViewController {
@@ -20,7 +19,7 @@ extension SearchCardTableViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         defineSearchController()
-        
+        fetchCards()
         self.tableView.register(SearchCardTableViewCell.self, forCellReuseIdentifier: "SearchCardCellIdentifier")
     }
 }
@@ -43,9 +42,15 @@ extension SearchCardTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCardCellIdentifier", for: indexPath)
-            configure(cell: cell, forItemAt: indexPath)
+            let card = cards[indexPath.row]
+            cell.textLabel?.text = card.name
+            cell.detailTextLabel?.text = card.race
             return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+      return indexPath
+}
 }
 
 extension SearchCardTableViewController {
@@ -55,42 +60,15 @@ extension SearchCardTableViewController {
 }
 
 extension SearchCardTableViewController {
-        func fetchMatchingItems() {
-            self.cards = []
-            self.tableView.reloadData()
-            
-            let searchTerm = searchController.searchBar.text ?? ""
-            
-            if !searchTerm.isEmpty {
-                let query: [String: String] = [
-                    "fname": "\(searchTerm)",
-                    "limit": "200"
-                ]
-                cardRequestedController.fetchItems(matching: query) {card in
-                    if let card = card {
-                        DispatchQueue.main.async {
-                            self.cards = card
-                            self.tableView.reloadData()
-                        }
-                    } else {
-                        print("error")
-                    }
-                }
-            }
-        }
-        
-        func configure(cell: UITableViewCell, forItemAt indexPath: IndexPath) {
-            let card = cards[indexPath.row]
-            cell.textLabel?.text = card.name
-            cell.detailTextLabel?.text = card.type
+    func fetchCards() {
+        AF.request("https://db.ygoprodeck.com/api/v7/cardinfo.php?archetype=Blue-Eyes").validate()
+            .responseDecodable(of: Cards.self) { (response) in
+          guard let cards = response.value else { return }
+          self.cards = cards.all
+          self.tableView.reloadData()
     }
 }
-
-extension SearchCardTableViewController: UISearchControllerDelegate {
-        func searchBarSearchButtonClicked(_ searchController: UISearchController) {
-            searchController.resignFirstResponder()
-        }
-    }
+}
 
 extension SearchCardTableViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {

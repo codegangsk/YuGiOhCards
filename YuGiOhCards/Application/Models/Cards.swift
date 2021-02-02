@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct Cards: Codable {
-    let results: [Card]
+struct Cards: Decodable {
+    var count: Int
+    var all: [Card]
+    
+    enum CodingKeys: String, CodingKey {
+      case count
+      case all = "results"
+    }
 }
