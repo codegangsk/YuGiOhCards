@@ -20,6 +20,7 @@
 		2A96B8C425B6AA2700975B04 /* YuGiOhCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96B8C325B6AA2700975B04 /* YuGiOhCardsUITests.swift */; };
 		2A96B8F525B6C6DF00975B04 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B8F425B6C6DF00975B04 /* Alamofire */; };
 		2A96B91025B7C19100975B04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B90F25B7C19100975B04 /* SnapKit */; };
+		2ABF92BC25CAC54C00F75AAF /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF92BB25CAC54C00F75AAF /* CardDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		2A96B8BF25B6AA2700975B04 /* YuGiOhCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YuGiOhCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A96B8C325B6AA2700975B04 /* YuGiOhCardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YuGiOhCardsUITests.swift; sourceTree = "<group>"; };
 		2A96B8C525B6AA2700975B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ABF92BB25CAC54C00F75AAF /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				2A4E690825B7CE60000B992C /* SearchCardTableViewController.swift */,
+				2ABF92BB25CAC54C00F75AAF /* CardDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				2A96B8A225B6AA2700975B04 /* AppDelegate.swift in Sources */,
 				2A96B8A425B6AA2700975B04 /* SceneDelegate.swift in Sources */,
 				2A4E691325B7F5FA000B992C /* SearchCardTableViewCell.swift in Sources */,
+				2ABF92BC25CAC54C00F75AAF /* CardDetailViewController.swift in Sources */,
 				2A4E694C25C0F6DB000B992C /* Cards.swift in Sources */,
 				2A4E691D25B80939000B992C /* Card.swift in Sources */,
 			);

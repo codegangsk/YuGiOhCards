@@ -40,7 +40,6 @@ extension SearchCardTableViewController {
         searchController.searchBar.placeholder = "Search Cards"
         searchController.searchBar.sizeToFit()
         navigationItem.searchController = searchController
-//        tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
     }
     
@@ -49,6 +48,13 @@ extension SearchCardTableViewController {
             return (card.name?.lowercased().contains(searchText.lowercased()))!
         }
         tableView.reloadData()
+    }
+}
+
+extension SearchCardTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
 }
 
@@ -95,13 +101,6 @@ extension SearchCardTableViewController {
                 self.cards = cards
                 self.tableView.reloadData()
             }
-    }
-}
-
-extension SearchCardTableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        let searchBar = searchController.searchBar
-        filterContentForSearchText(searchBar.text!)
     }
 }
 
