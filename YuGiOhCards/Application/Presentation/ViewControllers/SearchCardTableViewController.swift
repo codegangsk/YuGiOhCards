@@ -87,8 +87,22 @@ extension SearchCardTableViewController {
 extension SearchCardTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let card: Card
+        
+        if isFiltering {
+            card = filteredCards[indexPath.row]
+        } else {
+            card = cards[indexPath.row]
+        }
+        
+        let cardDetailViewController = CardDetailViewController()
+        cardDetailViewController.card = card
+        show(cardDetailViewController, sender: self)
+       
     }
 }
+
 
 extension SearchCardTableViewController {
     func fetchCards() {
