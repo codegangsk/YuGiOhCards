@@ -21,6 +21,7 @@
 		2A96B8F525B6C6DF00975B04 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B8F425B6C6DF00975B04 /* Alamofire */; };
 		2A96B91025B7C19100975B04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B90F25B7C19100975B04 /* SnapKit */; };
 		2ABF92BC25CAC54C00F75AAF /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF92BB25CAC54C00F75AAF /* CardDetailViewController.swift */; };
+		2ABF92C725CAE77800F75AAF /* CardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABF92C625CAE77800F75AAF /* CardDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		2A96B8C325B6AA2700975B04 /* YuGiOhCardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YuGiOhCardsUITests.swift; sourceTree = "<group>"; };
 		2A96B8C525B6AA2700975B04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2ABF92BB25CAC54C00F75AAF /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
+		2ABF92C625CAE77800F75AAF /* CardDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			children = (
 				2A4E690825B7CE60000B992C /* SearchCardTableViewController.swift */,
 				2ABF92BB25CAC54C00F75AAF /* CardDetailViewController.swift */,
+				2ABF92C625CAE77800F75AAF /* CardDetailViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ABF92C725CAE77800F75AAF /* CardDetailViewController.xib in Resources */,
 				2A96B8AE25B6AA2700975B04 /* LaunchScreen.storyboard in Resources */,
 				2A96B8AB25B6AA2700975B04 /* Assets.xcassets in Resources */,
 			);

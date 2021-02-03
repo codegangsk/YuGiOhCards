@@ -21,8 +21,6 @@ class CardDetailViewController: UIViewController {
 extension CardDetailViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
         self.view.addSubview(imageView)
         self.view.addSubview(nameLabel)
         self.view.addSubview(atkLabel)
