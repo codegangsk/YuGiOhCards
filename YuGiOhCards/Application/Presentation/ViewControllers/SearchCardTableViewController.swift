@@ -26,10 +26,19 @@ class SearchCardTableViewController: UITableViewController {
 extension SearchCardTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addTitleImage()
         defineSearchController()
         fetchCards()
         self.tableView.register(SearchCardTableViewCell.self, forCellReuseIdentifier: "SearchCardCellIdentifier")
+    }
+}
+
+extension SearchCardTableViewController {
+    func addTitleImage() {
+        let imageView = UIImageView(frame: CGRect(x: 0 , y: 0, width: 100, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "yugiohLogo")
+        navigationItem.titleView = imageView
     }
 }
 
