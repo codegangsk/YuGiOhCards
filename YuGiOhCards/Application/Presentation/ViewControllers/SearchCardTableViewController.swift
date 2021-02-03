@@ -12,6 +12,15 @@ class SearchCardTableViewController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     
     var cards: [Card] = []
+    var filteredCards: [Card] = []
+    
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
 }
 
 extension SearchCardTableViewController {
@@ -34,16 +43,31 @@ extension SearchCardTableViewController {
 //        tableView.tableHeaderView = searchController.searchBar
         definesPresentationContext = true
     }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filteredCards = cards.filter{ (card: Card) -> Bool in
+            return (card.name?.lowercased().contains(searchText.lowercased()))!
+        }
+        tableView.reloadData()
+    }
 }
 
 extension SearchCardTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isFiltering {
+            return filteredCards.count
+        }
         return cards.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCardCellIdentifier", for: indexPath)
-        let card = cards[indexPath.row]
+        let card: Card
+        if isFiltering {
+            card = filteredCards[indexPath.row]
+        } else {
+            card = cards[indexPath.row]
+        }
         cell.textLabel?.text = card.name
         cell.detailTextLabel?.text = card.race
         return cell
@@ -76,7 +100,8 @@ extension SearchCardTableViewController {
 
 extension SearchCardTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
 }
 
