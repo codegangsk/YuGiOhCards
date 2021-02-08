@@ -15,7 +15,7 @@ struct Card: Codable {
     var def: Int?
     var race: String?
     var desc: String?
-    var card_Images: CardImages?
+    var card_images: [CardImages?]
     
 //    enum CodingKeys: String, CodingKey {
 //        case name

@@ -97,21 +97,7 @@ extension CardDetailViewController {
             atkLabel.text = "ATK: N/A"
             defLabel.text = "DEF: N/A"
         }
-        
-        DispatchQueue.global(qos: .background).async {
-            if let url = card.card_Images?.image_url {
-                do {
-                    let imageData = try Data(contentsOf: url)
-                    if let image = UIImage(data: imageData) {
-                        DispatchQueue.main.async {
-                            self.imageView.image = image
-                        }
-                    }
-                } catch {
-                    debugPrint("From catch block: Image could not be downloaded!")
-                }
-            }
-        }
     }
 }
+
 
