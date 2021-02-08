@@ -13,8 +13,10 @@ class CardDetailViewController: UIViewController {
     
     var imageView = UIImageView()
     var nameLabel = UILabel()
+    var typeLabel = UILabel()
     var atkLabel = UILabel()
     var defLabel = UILabel()
+    var raceLabel = UILabel()
     var descriptionLabel = UILabel()
 }
 
@@ -23,14 +25,18 @@ extension CardDetailViewController {
         super.viewDidLoad()
         self.view.addSubview(imageView)
         self.view.addSubview(nameLabel)
+        self.view.addSubview(typeLabel)
         self.view.addSubview(atkLabel)
         self.view.addSubview(defLabel)
+        self.view.addSubview(raceLabel)
         self.view.addSubview(descriptionLabel)
         
         makeImageViewLayout()
         makeNameLableLayout()
+        makeTypeLableLayout()
         makeAtkLabelLayout()
         makeDefLabelLayout()
+        makeRaceLableLayout()
         makeDescriptionLabelLayout()
         
         updateUI()
@@ -60,9 +66,16 @@ extension CardDetailViewController {
         }
     }
     
+    func makeTypeLableLayout() {
+        typeLabel.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(8)
+            make.leading.equalTo(8)
+        }
+    }
+    
     func makeAtkLabelLayout() {
         atkLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(8)
+            make.top.equalTo(typeLabel.snp.bottom).offset(8)
             make.leading.equalTo(8)
         }
     }
@@ -74,10 +87,18 @@ extension CardDetailViewController {
         }
     }
     
+    func makeRaceLableLayout() {
+        raceLabel.snp.makeConstraints { make in
+            make.top.equalTo(defLabel.snp.bottom).offset(8)
+            make.leading.equalTo(8)
+        }
+    }
+    
+    
     func makeDescriptionLabelLayout() {
         descriptionLabel.numberOfLines = 20
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(defLabel.snp.bottom).offset(8)
+            make.top.equalTo(raceLabel.snp.bottom).offset(8)
             make.leading.equalTo(8)
             make.trailing.equalTo(-8)
         }
@@ -88,14 +109,17 @@ extension CardDetailViewController {
     func updateUI() {
         guard let card = card else { return }
         nameLabel.text = card.name
+        typeLabel.text = "Type: \(card.type!)"
         descriptionLabel.text = card.desc
         
-        if card.atk != nil && card.def != nil {
+        if card.atk != nil && card.def != nil && card.race != nil {
             atkLabel.text = "ATK: \(card.atk!)"
             defLabel.text = "DEF: \(card.def!)"
+            raceLabel.text = "Race: \(card.race!)"
         } else {
             atkLabel.text = "ATK: N/A"
             defLabel.text = "DEF: N/A"
+            raceLabel.text = "Race: N/A"
         }
     
         let url = (card.card_images[0]?.image_url)!
