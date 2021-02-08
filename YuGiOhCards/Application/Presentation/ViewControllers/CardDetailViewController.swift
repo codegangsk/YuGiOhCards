@@ -97,6 +97,7 @@ extension CardDetailViewController {
     
     func makeDescriptionLabelLayout() {
         descriptionLabel.numberOfLines = 20
+        descriptionLabel.textAlignment = .justified
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(raceLabel.snp.bottom).offset(8)
             make.leading.equalTo(8)
