@@ -44,7 +44,7 @@ extension CardDetailViewController {
                                                         relatedBy: NSLayoutConstraint.Relation.equal,
                                                         toItem: self.imageView, attribute: NSLayoutConstraint.Attribute.width,
                                                         multiplier: 10/17, constant: 0))
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.snp.makeConstraints { make in
             make.top.equalTo(105)
             make.leading.equalTo(8)
@@ -88,7 +88,7 @@ extension CardDetailViewController {
     func updateUI() {
         guard let card = card else { return }
         nameLabel.text = card.name
-        descriptionLabel.text = card.description
+        descriptionLabel.text = card.desc
         
         if card.atk != nil && card.def != nil {
             atkLabel.text = "ATK: \(card.atk!)"
@@ -96,6 +96,21 @@ extension CardDetailViewController {
         } else {
             atkLabel.text = "ATK: N/A"
             defLabel.text = "DEF: N/A"
+        }
+        
+        DispatchQueue.global(qos: .background).async {
+            if let url = card.card_Images?.image_url {
+                do {
+                    let imageData = try Data(contentsOf: url)
+                    if let image = UIImage(data: imageData) {
+                        DispatchQueue.main.async {
+                            self.imageView.image = image
+                        }
+                    }
+                } catch {
+                    debugPrint("From catch block: Image could not be downloaded!")
+                }
+            }
         }
     }
 }

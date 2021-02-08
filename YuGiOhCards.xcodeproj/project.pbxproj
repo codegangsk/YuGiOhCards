@@ -111,6 +111,7 @@
 			children = (
 				2A4E691C25B80939000B992C /* Card.swift */,
 				2A4E694B25C0F6DB000B992C /* Cards.swift */,
+				2A4E691B25B808C6000B992C /* Networking */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,7 +187,6 @@
 				2A96B8A325B6AA2700975B04 /* SceneDelegate.swift */,
 				2A96B8F025B6C4F400975B04 /* Presentation */,
 				2A4E691A25B80889000B992C /* Models */,
-				2A4E691B25B808C6000B992C /* Networking */,
 			);
 			path = Application;
 			sourceTree = "<group>";
