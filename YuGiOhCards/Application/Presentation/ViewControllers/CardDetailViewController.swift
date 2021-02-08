@@ -44,7 +44,7 @@ extension CardDetailViewController {
                                                         relatedBy: NSLayoutConstraint.Relation.equal,
                                                         toItem: self.imageView, attribute: NSLayoutConstraint.Attribute.width,
                                                         multiplier: 10/17, constant: 0))
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.snp.makeConstraints { make in
             make.top.equalTo(105)
             make.leading.equalTo(8)
@@ -97,7 +97,13 @@ extension CardDetailViewController {
             atkLabel.text = "ATK: N/A"
             defLabel.text = "DEF: N/A"
         }
+    
+        let url = (card.card_images[0]?.image_url)!
+        if let data = try? Data(contentsOf: url) {
+            imageView.image = UIImage(data: data)
+        }
     }
+    
 }
 
 
