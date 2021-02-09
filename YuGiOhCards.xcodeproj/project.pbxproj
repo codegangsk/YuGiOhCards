@@ -111,16 +111,8 @@
 			children = (
 				2A4E691C25B80939000B992C /* Card.swift */,
 				2A4E694B25C0F6DB000B992C /* Cards.swift */,
-				2A4E691B25B808C6000B992C /* Networking */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2A4E691B25B808C6000B992C /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		2A4E693125BE6967000B992C /* Extension */ = {
