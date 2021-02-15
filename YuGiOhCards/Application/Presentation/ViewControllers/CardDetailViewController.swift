@@ -122,13 +122,16 @@ extension CardDetailViewController {
             defLabel.text = "DEF: N/A"
             raceLabel.text = "Race: N/A"
         }
-    
-        let url = (card.card_images[0]?.image_url)!
-        if let data = try? Data(contentsOf: url) {
-            imageView.image = UIImage(data: data)
+        
+        DispatchQueue.global().async {
+            guard let url = (card.card_images[0]?.image_url) else { return }
+            guard let data = try? Data(contentsOf: url) else { return }
+            let image = UIImage(data: data)
+            DispatchQueue.main.async {
+                self.imageView.image = image
+            }
         }
     }
-    
 }
 
 
