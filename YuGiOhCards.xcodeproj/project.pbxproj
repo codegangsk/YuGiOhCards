@@ -22,6 +22,7 @@
 		2A96B91025B7C19100975B04 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A96B90F25B7C19100975B04 /* SnapKit */; };
 		2ABF92BC25CAC54C00F75AAF /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABF92BB25CAC54C00F75AAF /* CardDetailViewController.swift */; };
 		2ABF92C725CAE77800F75AAF /* CardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABF92C625CAE77800F75AAF /* CardDetailViewController.xib */; };
+		2AEA99E925DBF87500B256FF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2AEA99E825DBF87500B256FF /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AEA99E925DBF87500B256FF /* Kingfisher in Frameworks */,
 				2A96B91025B7C19100975B04 /* SnapKit in Frameworks */,
 				2A96B8F525B6C6DF00975B04 /* Alamofire in Frameworks */,
 			);
@@ -230,6 +232,7 @@
 			packageProductDependencies = (
 				2A96B90F25B7C19100975B04 /* SnapKit */,
 				2A96B8F425B6C6DF00975B04 /* Alamofire */,
+				2AEA99E825DBF87500B256FF /* Kingfisher */,
 			);
 			productName = YuGiOhCards;
 			productReference = 2A96B89E25B6AA2600975B04 /* YuGiOhCards.app */;
@@ -305,6 +308,7 @@
 			packageReferences = (
 				2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				2A96B8F325B6C6DF00975B04 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				2AEA99E725DBF87500B256FF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 2A96B89F25B6AA2600975B04 /* Products */;
 			projectDirPath = "";
@@ -699,6 +703,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		2AEA99E725DBF87500B256FF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -711,6 +723,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2A96B90E25B7C19100975B04 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		2AEA99E825DBF87500B256FF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AEA99E725DBF87500B256FF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
