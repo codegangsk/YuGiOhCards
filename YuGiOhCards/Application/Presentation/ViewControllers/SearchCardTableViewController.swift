@@ -8,11 +8,25 @@
 import UIKit
 import Alamofire
 
+private enum Section {
+    case cards
+}
+
+private enum Row: Equatable {
+    case card(Card)
+}
+
 class SearchCardTableViewController: UITableViewController {
+    private var dataSource = DataSource<Section, Row>()
+    
     let searchController = UISearchController(searchResultsController: nil)
     
-    var cards: [Card] = []
-    var filteredCards: [Card] = []
+    var cards: [Card] = [] {
+        didSet {
+            setupDataSource()
+            tableView.reloadData()
+        }
+    }
     
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
@@ -26,15 +40,20 @@ class SearchCardTableViewController: UITableViewController {
 extension SearchCardTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        addTitleImage()
-        defineSearchController()
-        fetchCards()
+        
+        configureTitleImage()
+        configureSearchController()
+        
         self.tableView.register(SearchCardTableViewCell.self, forCellReuseIdentifier: "SearchCardCellIdentifier")
+        
+        setupDataSource()
+        
+        fetchCards()
     }
 }
 
 extension SearchCardTableViewController {
-    func addTitleImage() {
+    func configureTitleImage() {
         let imageView = UIImageView(frame: CGRect(x: 0 , y: 0, width: 100, height: 30))
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "yugiohLogo")
@@ -43,7 +62,7 @@ extension SearchCardTableViewController {
 }
 
 extension SearchCardTableViewController {
-    func defineSearchController() {
+    private func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Cards"
@@ -52,10 +71,8 @@ extension SearchCardTableViewController {
         definesPresentationContext = true
     }
     
-    func filterContentForSearchText(_ searchText: String) {
-        filteredCards = cards.filter{ (card: Card) -> Bool in
-            return (card.name?.lowercased().contains(searchText.lowercased()))!
-        }
+    private func filterContentForSearchText(_ searchText: String) {
+        setupDataSource(keyword: searchText)
         tableView.reloadData()
     }
 }
@@ -68,24 +85,24 @@ extension SearchCardTableViewController: UISearchResultsUpdating {
 }
 
 extension SearchCardTableViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return dataSource.numberOfSections
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return filteredCards.count
-        }
-        return cards.count
+        return dataSource.numberOfItems(in: section)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCardCellIdentifier", for: indexPath)
-        let card: Card
-        if isFiltering {
-            card = filteredCards[indexPath.row]
-        } else {
-            card = cards[indexPath.row]
+        let row = dataSource.item(for: indexPath)
+        
+        switch row {
+        case .card(let card):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCardCellIdentifier", for: indexPath) as! SearchCardTableViewCell
+            cell.textLabel?.text = card.name
+            cell.detailTextLabel?.text = card.race
+            return cell
         }
-        cell.textLabel?.text = card.name
-        cell.detailTextLabel?.text = card.race
-        return cell
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -97,17 +114,13 @@ extension SearchCardTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let card: Card
-        
-        if isFiltering {
-            card = filteredCards[indexPath.row]
-        } else {
-            card = cards[indexPath.row]
+        let row = dataSource.item(for: indexPath)
+        switch row {
+        case .card(let card):
+            let cardDetailViewController = CardDetailViewController()
+            cardDetailViewController.card = card
+            show(cardDetailViewController, sender: self)
         }
-        
-        let cardDetailViewController = CardDetailViewController()
-        cardDetailViewController.card = card
-        show(cardDetailViewController, sender: self)
     }
 }
 
@@ -116,12 +129,30 @@ extension SearchCardTableViewController {
         AF
             .request("https://db.ygoprodeck.com/api/v7/cardinfo.php?")
             .validate()
-            .responseDecodable(of: CardsResponse.self) { (response) in
-                guard let cards = response.value?.data else { return }
+            .responseDecodable(of: CardsResponse.self) { [weak self] (response) in
+                guard let self = self,
+                      let cards = response.value?.data
+                else { return }
                 
                 self.cards = cards
-                self.tableView.reloadData()
             }
     }
 }
 
+extension SearchCardTableViewController {
+    private func setupDataSource(keyword: String? = nil) {
+        dataSource.removeAllSections()
+        
+        dataSource.appendSection(.cards, with: [])
+        let rows: [Row] = cards
+            .filter {
+                guard let keyword = keyword,
+                      keyword.isEmpty == false
+                else { return true }
+                
+                return $0.name?.lowercased().contains(keyword.lowercased()) == true
+            }
+            .compactMap { .card($0) }
+        dataSource.append(rows, in: .cards)
+    }
+}

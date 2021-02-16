@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct Card: Codable {
+struct Card: Codable, Equatable {
     var name: String?
     var type: String?
     var atk: Int?
@@ -18,6 +18,6 @@ struct Card: Codable {
     var card_images: [CardImages?]
 }
 
-struct CardImages: Codable {
+struct CardImages: Codable, Equatable {
     var image_url: URL?
 }
