@@ -108,10 +108,8 @@ extension SearchCardTableViewController {
         let cardDetailViewController = CardDetailViewController()
         cardDetailViewController.card = card
         show(cardDetailViewController, sender: self)
-       
     }
 }
-
 
 extension SearchCardTableViewController {
     func fetchCards() {
