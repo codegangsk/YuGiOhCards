@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class CardDetailViewController: UIViewController {
     var card: Card?
@@ -123,15 +124,10 @@ extension CardDetailViewController {
             raceLabel.text = "Race: N/A"
         }
         
-        DispatchQueue.global().async {
-            guard let url = (card.card_images[0]?.image_url) else { return }
-            guard let data = try? Data(contentsOf: url) else { return }
-            let image = UIImage(data: data)
-            DispatchQueue.main.async {
-                self.imageView.image = image
-            }
-        }
+        guard let url = (card.card_images[0]?.image_url) else { return }
+        imageView.kf.setImage(with: url)
     }
 }
+
 
 
