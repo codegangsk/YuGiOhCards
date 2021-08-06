@@ -21,7 +21,7 @@ class SearchCardTableViewController: UITableViewController {
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    var cards: [Card] = [] {
+    var cards : [Card] = [] {
         didSet {
             setupDataSource()
             tableView.reloadData()
@@ -49,8 +49,10 @@ extension SearchCardTableViewController {
         setupDataSource()
         
         fetchCards()
+        
     }
 }
+
 
 extension SearchCardTableViewController {
     func configureTitleImage() {
@@ -125,17 +127,18 @@ extension SearchCardTableViewController {
 }
 
 extension SearchCardTableViewController {
-    func fetchCards() {
-        AF
-            .request("https://db.ygoprodeck.com/api/v7/cardinfo.php?")
-            .validate()
-            .responseDecodable(of: CardsResponse.self) { [weak self] (response) in
-                guard let self = self,
-                      let cards = response.value?.data
-                else { return }
-                
-                self.cards = cards
+   func fetchCards() {
+        API.shared.call(url: "https://db.ygoprodeck.com/api/v7/cardinfo.php?", for: CardsResponse.self) { [weak self] response in
+            guard let self = self else { return }
+
+            switch response {
+            case .success(let cardsResponse):
+                let cards = cardsResponse.data
+                self.cards = cards!
+            case .failure(let error):
+                break
             }
+        }
     }
 }
 

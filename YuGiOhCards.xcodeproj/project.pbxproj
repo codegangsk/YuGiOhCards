@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4B147726BD299700AACE40 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B147626BD299700AACE40 /* API.swift */; };
+		2A4B147D26BD323200AACE40 /* CardsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B147C26BD323200AACE40 /* CardsManager.swift */; };
 		2A4E690925B7CE60000B992C /* SearchCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E690825B7CE60000B992C /* SearchCardTableViewController.swift */; };
 		2A4E691325B7F5FA000B992C /* SearchCardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E691225B7F5FA000B992C /* SearchCardTableViewCell.swift */; };
 		2A4E691D25B80939000B992C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4E691C25B80939000B992C /* Card.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A4B147626BD299700AACE40 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		2A4B147C26BD323200AACE40 /* CardsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsManager.swift; sourceTree = "<group>"; };
 		2A4E690825B7CE60000B992C /* SearchCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardTableViewController.swift; sourceTree = "<group>"; };
 		2A4E691225B7F5FA000B992C /* SearchCardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCardTableViewCell.swift; sourceTree = "<group>"; };
 		2A4E691C25B80939000B992C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				2A60CE4825DC016400BF060E /* DataSource.swift */,
+				2A4B147626BD299700AACE40 /* API.swift */,
+				2A4B147C26BD323200AACE40 /* CardsManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A4B147726BD299700AACE40 /* API.swift in Sources */,
 				2A4E690925B7CE60000B992C /* SearchCardTableViewController.swift in Sources */,
 				2A4E693325BE6990000B992C /* URLExtension.swift in Sources */,
 				2A96B8A225B6AA2700975B04 /* AppDelegate.swift in Sources */,
@@ -375,6 +382,7 @@
 				2A4E691325B7F5FA000B992C /* SearchCardTableViewCell.swift in Sources */,
 				2ABF92BC25CAC54C00F75AAF /* CardDetailViewController.swift in Sources */,
 				2A4E694C25C0F6DB000B992C /* Cards.swift in Sources */,
+				2A4B147D26BD323200AACE40 /* CardsManager.swift in Sources */,
 				2A60CE4925DC016400BF060E /* DataSource.swift in Sources */,
 				2A4E691D25B80939000B992C /* Card.swift in Sources */,
 			);
